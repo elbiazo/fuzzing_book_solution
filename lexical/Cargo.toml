@@ -1,0 +1,8 @@
+[package]
+name = "lexical-fuzzer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fuzzingbook = { path = "../fuzzingbook" }
+tempfile = "3.2.0"
