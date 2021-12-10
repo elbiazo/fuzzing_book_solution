@@ -9,7 +9,7 @@ use tempfile::NamedTempFile;
 
 fn main() -> Result<(), io::Error> {
     // let sf = SimpleFuzzer::new(100, RangeInclusive::new('0' as u8, '9' as u8));
-    let sf = SimpleFuzzer::new(10, RangeInclusive::new(0,83));
+    let sf = SimpleFuzzer::new(100, RangeInclusive::new('a' as u8, 'z' as u8));
     // println!("{:?}", str::from_utf8(&sf.fuzz()).unwrap());
 
     // Write
@@ -25,7 +25,7 @@ fn main() -> Result<(), io::Error> {
 
     let runner = Command::new("bc").arg(tmpfile.path()).output()?;
     println!("{:?}", str::from_utf8(&runner.stdout).unwrap());
-    println!("{:?}", runner.status.code().unwrap());
+    println!("{:?}", runner.status.code());
     println!("{:?}", str::from_utf8(&runner.stderr));
 
     Ok(())
